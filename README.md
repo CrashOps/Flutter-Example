@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This Flutter plugin helps to bridge with the CrashOps native SDK.
-CrashOps SDK helps you monitor your Flutter app's native crashes (we will add support for Flutter errors as well in the future versions).
+CrashOps SDK helps you monitor your app's native crashes (we plan to add support for Flutter errors as well in future versions).
 
 ## Installation
 
@@ -96,12 +96,7 @@ class _MyAppState extends State<MyApp> {
 
 ## Don't have Flutter yet?
 
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
+For help getting started with Flutter, view its [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
 
