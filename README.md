@@ -1,16 +1,112 @@
-# crashops_flutter_plugin_example
+# CrashOps plugin for Flutter - Sample project
 
-A new Flutter project.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Getting Started
+This Flutter plugin helps to bridge with the CrashOps native SDK.
+CrashOps SDK helps you monitor your Flutter app's native crashes (we will add support for Flutter errors as well in the future versions).
 
-This project is a starting point for a Flutter application.
+## Installation
 
-A few resources to get you started if this is your first Flutter project:
+Easiest to install, it's a plug n' play plugin.
+All you need to do is add this dependency ("crashops_flutter") and the SDK will automatically start monitoring after each application launch.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Install by adding `crashops_flutter` to your `pubspec.yaml` file, for example:
+```
+dependencies:
+  flutter:
+    sdk: flutter
+...
+  crashops_flutter: any
+...
+```
+
+## Usage
+
+(for a full example project go to: [github.com/CrashOps/Flutter-Example](https://github.com/CrashOps/Flutter-Example))
+
+### Catch errors
+
+To catch errors from your Flutter app, edit your `main()` method as follows:
+```dart
+void main() {
+  // Catching errors in Flutter actually depends on the Flutter developer's code.
+  CrashOps crashOps = CrashOps();
+
+  var onErrorPreviousCallback = FlutterError.onError;
+  
+  // Catches only Flutter errors
+  FlutterError.onError = (FlutterErrorDetails details) {
+    crashOps.onError(details);
+    FlutterError.dumpErrorToConsole(details, forceReport: false);
+    if (onErrorPreviousCallback != null && FlutterError.dumpErrorToConsole != onErrorPreviousCallback) {
+      onErrorPreviousCallback(details);
+    }
+  };
+
+  // Catches all Dart
+  runZoned(() {
+    runApp(MyApp());
+  }, onError: (error, stackTrace) {
+    // This catches also Dart errors, not only Flutter errors.
+    // For more details, read: https://flutter.dev/docs/cookbook/maintenance/error-reporting
+    crashOps.onError(error, stackTrace);
+
+    if (error is FlutterErrorDetails) {
+      FlutterErrorDetails details = error;
+
+      FlutterError.dumpErrorToConsole(details, forceReport: false);
+      if (onErrorPreviousCallback != null && FlutterError.dumpErrorToConsole != onErrorPreviousCallback) {
+        onErrorPreviousCallback(details);
+      }
+    }
+  });
+}
+```
+
+
+### Custom configurations
+```dart
+class _MyAppState extends State<MyApp> {
+  final CrashOps crashOps = CrashOps();
+  
+  ...
+
+  @override
+  void initState() {
+    super.initState();
+
+    // If you're willing to create logs in debug
+    crashOps.isEnabledInDebugMode = true;
+    // If you wish to upload logs CrashOps servers
+    crashOps.setClientId(
+        "the-client-id-you-received-from-crashops-customer-support");
+    // If you wish to upload logs CrashOps servers
+    crashOps.setMetadata({"yo": "that's my awesome app!"});
+
+    try {
+      // Platform messages may fail, so we use a try/catch PlatformException.
+    } on PlatformException {
+      print("Error!");
+    }
+  }
+  
+  ...
+  
+}
+```
+
+## Don't have Flutter yet?
+
+[plug-in package](https://flutter.dev/developing-packages/),
+a specialized package that includes platform-specific implementation code for
+Android and/or iOS.
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+### TODO
+Be ready for production :)
+
+Our SDK is still under development, stay tuned: [CrashOps.com](https://www.crashops.com/)
