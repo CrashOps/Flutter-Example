@@ -84,7 +84,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('CrashOps plugin example host app'),
+          title: const Text('CrashOps plugin example'),
         ),
         body: Center(
           child: Column(
