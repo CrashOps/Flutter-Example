@@ -22,7 +22,6 @@ dependencies:
 
 ## Usage
 
-(for a full example project go to: [github.com/CrashOps/Flutter-Example](https://github.com/CrashOps/Flutter-Example))
 
 ### Catch errors
 
@@ -106,7 +105,18 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-### TODO
-Be ready for production :)
+## Acknowledgments
+
+[iOS](https://github.com/CrashOps/iOS-SDK/): [KSCrash](https://github.com/kstenerud/KSCrash) library.
+
+[Android](https://github.com/CrashOps/Android-SDK/): Currently none.
+
+[Flutter](https://pub.dev/packages/crashops_flutter): https://pub.dev/flutter
+
+
+
+
+## TODO
+Be production ready :)
 
 Our SDK is still under development, stay tuned: [CrashOps.com](https://www.crashops.com/)
