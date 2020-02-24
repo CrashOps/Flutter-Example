@@ -23,6 +23,7 @@ dependencies:
 ## Usage
 
 
+
 ### Catch errors
 
 To catch errors from your Flutter app, edit your `main()` method as follows:
@@ -32,7 +33,7 @@ void main() {
   CrashOps crashOps = CrashOps();
 
   var onErrorPreviousCallback = FlutterError.onError;
-  
+
   // Catches only Flutter errors
   FlutterError.onError = (FlutterErrorDetails details) {
     crashOps.onError(details);
@@ -67,7 +68,7 @@ void main() {
 ```dart
 class _MyAppState extends State<MyApp> {
   final CrashOps crashOps = CrashOps();
-  
+
   ...
 
   @override
@@ -88,17 +89,17 @@ class _MyAppState extends State<MyApp> {
       print("Error!");
     }
   }
-  
+
   ...
-  
+
 }
 ```
 
-## Don't have Flutter yet?
+## Don't have [Flutter](https://flutter.dev/) yet?
 
-For help getting started with Flutter, view its [online documentation](https://flutter.dev/docs), which offers tutorials,
+For help getting started with Flutter, view their
+[online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-
 
 ## Acknowledgments
 
@@ -110,8 +111,7 @@ samples, guidance on mobile development, and a full API reference.
 
 
 
-
-## TODO
-Be production ready :)
+### TODO
+Become production ready :)
 
 Our SDK is still under development, stay tuned: [CrashOps.com](https://www.crashops.com/)
