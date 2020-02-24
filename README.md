@@ -2,15 +2,14 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This Flutter plugin helps to bridge with the CrashOps native SDK.
-CrashOps SDK helps you monitor your app's native crashes (we plan to add support for Flutter errors as well in future versions).
+This Flutter plugin helps to bridge your app with the CrashOps native SDK.
+CrashOps SDK helps you monitor your app's crashes and Flutter errors.
 
 ## Installation
 
-Easiest to install, it's a plug n' play plugin.
-All you need to do is add this dependency ("crashops_flutter") and the SDK will automatically start monitoring after each application launch.
+Easiest to install, it's a "plug n' play" plugin. All you need to do is add `crashops_flutter` dependency and the SDK will automatically start monitoring on each application launch.
 
-Install by adding `crashops_flutter` to your `pubspec.yaml` file, for example:
+Required changes in your `pubspec.yaml` file:
 ```
 dependencies:
   flutter:
@@ -63,10 +62,11 @@ void main() {
 }
 ```
 
-
 ### Custom configurations
 ```dart
 class _MyAppState extends State<MyApp> {
+  // It's not mandatory to put those configurations inside a State.
+  // It may also be in the "main()" function.
   final CrashOps crashOps = CrashOps();
 
   ...
@@ -77,17 +77,11 @@ class _MyAppState extends State<MyApp> {
 
     // If you're willing to create logs in debug
     crashOps.isEnabledInDebugMode = true;
-    // If you wish to upload logs CrashOps servers
+    // If you wish to upload logs to CrashOps servers
     crashOps.setClientId(
         "the-client-id-you-received-from-crashops-customer-support");
-    // If you wish to upload logs CrashOps servers
+    // If you wish to add more details in each log
     crashOps.setMetadata({"yo": "that's my awesome app!"});
-
-    try {
-      // Platform messages may fail, so we use a try/catch PlatformException.
-    } on PlatformException {
-      print("Error!");
-    }
   }
 
   ...
