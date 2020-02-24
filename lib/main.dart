@@ -47,6 +47,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  // It's not mandatory to put those configurations inside a State.
+  // It may also be in the "main()" function.
   final CrashOps crashOps = CrashOps();
   bool _isCrashOpsEnabled;
 
@@ -59,7 +61,7 @@ class _MyAppState extends State<MyApp> {
     // If you wish to upload logs CrashOps servers
     crashOps.setClientId(
         "the-client-id-you-received-from-crashops-customer-support");
-    // If you wish to upload logs CrashOps servers
+    // If you wish to add more details in each log
     crashOps.setMetadata({"yo": "that's my awesome app!"});
 
     try {
