@@ -99,7 +99,7 @@ samples, guidance on mobile development, and a full API reference.
 
 [iOS](https://github.com/CrashOps/iOS-SDK/): [KSCrash](https://github.com/kstenerud/KSCrash) library.
 
-[Android](https://github.com/CrashOps/Android-SDK/): Currently none.
+[Android](https://github.com/CrashOps/Android-SDK/): [retrofit](https://square.github.io/retrofit/).
 
 [Flutter](https://pub.dev/packages/crashops_flutter): https://pub.dev/flutter
 
