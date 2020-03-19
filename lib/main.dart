@@ -47,10 +47,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // It's not mandatory to put those configurations inside a State.
-  // It may also be in the "main()" function.
   final CrashOps crashOps = CrashOps();
   bool _isCrashOpsEnabled;
+  String get _btnEnableTitle => _isCrashOpsEnabled ? "enabled" : "disabled";
 
   @override
   void initState() {
@@ -59,8 +58,7 @@ class _MyAppState extends State<MyApp> {
     // If you're willing to create logs in debug
     crashOps.isEnabledInDebugMode = true;
     // If you wish to upload logs CrashOps servers
-    crashOps.setClientId(
-        "the-client-id-you-received-from-crashops-customer-support");
+    crashOps.setClientId("your-client-id-from-crashops");
     // If you wish to add more details in each log
     crashOps.setMetadata({"yo": "that's my awesome app!"});
 
@@ -107,19 +105,61 @@ class _MyAppState extends State<MyApp> {
                     setState(() {});
                   }
                 },
-                child: Text(_isCrashOpsEnabled ? "enabled" : "disabled"),
+                child: Text(_btnEnableTitle),
               ),
               RaisedButton(
                 onPressed: () async {
                   String nullString;
                   print(nullString.split("nonce").toString());
                 },
-                child: Text("cause problem! 😱"),
+                child: Text("Cause error! 🐞"),
+              ),
+              RaisedButton(
+                onPressed: () async {
+                  NativeBridge.crashThisApp().then((didSucceed) {
+                    if (didSucceed) {
+                      print("this line cannot be printed, ever!");
+                    }
+                  });
+                },
+                child: Text("Crash app! 😱"),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class NativeBridge {
+  static const platform =
+      const MethodChannel('crashops-flutter-example/native_channel');
+
+  static const String SUCCESS_RESULT = "1";
+  static const String FAILURE_RESULT = "0";
+
+  static Future<bool> crashThisApp() async {
+    String result = await _invokeNativeMethod("crash_the_app");
+    return result == SUCCESS_RESULT;
+  }
+
+  static Future<String> _invokeNativeMethod(String methodName,
+      [dynamic arguments]) async {
+    String result;
+    try {
+      if (arguments == null) {
+        result = await platform.invokeMethod(methodName);
+      } else {
+        result = await platform.invokeMethod(methodName, arguments);
+      }
+      print("Native method '$methodName' returned result: $result");
+    } on PlatformException catch (e) {
+      String errorMessageString =
+          "Failed to run native method, error: '${e.message}'.";
+      print(errorMessageString);
+    }
+
+    return result;
   }
 }
