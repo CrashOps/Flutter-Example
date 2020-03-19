@@ -9,6 +9,6 @@
 	<key>isDisabledOnDebug</key>
 	<false/>
 	<key>clientId</key>
-	<string>CrashOps sample Flutter app</string>
+	<string>your-client-id-from-crashops</string>
 </dict>
 </plist>
