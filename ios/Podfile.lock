@@ -1,0 +1,95 @@
+PODS:
+  - CrashOps (0.0.823):
+    - KZCrash (= 1.15.24)
+  - crashops_flutter (0.0.822):
+    - CrashOps (= 0.0.823)
+    - Flutter
+  - Flutter (1.0.0)
+  - KZCrash (1.15.24):
+    - KZCrash/Installations (= 1.15.24)
+  - KZCrash/Installations (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting
+  - KZCrash/Recording (1.15.24):
+    - KZCrash/Recording/Tools (= 1.15.24)
+  - KZCrash/Recording/Tools (1.15.24)
+  - KZCrash/Reporting (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters (= 1.15.24)
+    - KZCrash/Reporting/MessageUI (= 1.15.24)
+    - KZCrash/Reporting/Sinks (= 1.15.24)
+    - KZCrash/Reporting/Tools (= 1.15.24)
+  - KZCrash/Reporting/Filters (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters/Alert (= 1.15.24)
+    - KZCrash/Reporting/Filters/AppleFmt (= 1.15.24)
+    - KZCrash/Reporting/Filters/Base (= 1.15.24)
+    - KZCrash/Reporting/Filters/Basic (= 1.15.24)
+    - KZCrash/Reporting/Filters/GZip (= 1.15.24)
+    - KZCrash/Reporting/Filters/JSON (= 1.15.24)
+    - KZCrash/Reporting/Filters/Sets (= 1.15.24)
+    - KZCrash/Reporting/Filters/Stringify (= 1.15.24)
+    - KZCrash/Reporting/Filters/Tools (= 1.15.24)
+  - KZCrash/Reporting/Filters/Alert (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters/Base
+  - KZCrash/Reporting/Filters/AppleFmt (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters/Base
+  - KZCrash/Reporting/Filters/Base (1.15.24):
+    - KZCrash/Recording
+  - KZCrash/Reporting/Filters/Basic (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters/Base
+  - KZCrash/Reporting/Filters/GZip (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters/Base
+  - KZCrash/Reporting/Filters/JSON (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters/Base
+  - KZCrash/Reporting/Filters/Sets (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters/AppleFmt
+    - KZCrash/Reporting/Filters/Base
+    - KZCrash/Reporting/Filters/Basic
+    - KZCrash/Reporting/Filters/GZip
+    - KZCrash/Reporting/Filters/JSON
+    - KZCrash/Reporting/Filters/Stringify
+  - KZCrash/Reporting/Filters/Stringify (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters/Base
+  - KZCrash/Reporting/Filters/Tools (1.15.24):
+    - KZCrash/Recording
+  - KZCrash/Reporting/MessageUI (1.15.24):
+    - KZCrash/Recording
+  - KZCrash/Reporting/Sinks (1.15.24):
+    - KZCrash/Recording
+    - KZCrash/Reporting/Filters
+    - KZCrash/Reporting/Tools
+  - KZCrash/Reporting/Tools (1.15.24):
+    - KZCrash/Recording
+
+DEPENDENCIES:
+  - crashops_flutter (from `.symlinks/plugins/crashops_flutter/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - CrashOps
+    - KZCrash
+
+EXTERNAL SOURCES:
+  crashops_flutter:
+    :path: ".symlinks/plugins/crashops_flutter/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  CrashOps: 0bc31b32d1f296287d962366539cd6861aee710d
+  crashops_flutter: 9ffdd6cc11aa66018f41963c559a9e1fbb86e943
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  KZCrash: 1e8b41862ed460b690ec603e9cbb4869e7106711
+
+PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+
+COCOAPODS: 1.8.4
