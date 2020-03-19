@@ -78,8 +78,7 @@ class _MyAppState extends State<MyApp> {
     // If you're willing to create logs in debug
     crashOps.isEnabledInDebugMode = true;
     // If you wish to upload logs to CrashOps servers
-    crashOps.setClientId(
-        "the-client-id-you-received-from-crashops-customer-support");
+    crashOps.setClientId("your-client-id-from-crashops");
     // If you wish to add more details in each log
     crashOps.setMetadata({"yo": "that's my awesome app!"});
   }
@@ -88,6 +87,17 @@ class _MyAppState extends State<MyApp> {
 
 }
 ```
+## Configuration Files
+These files are **not mandatory** to use as you can also configure CrashOps via code only (programmatically, as appears above), but you still can add these files to save yourself coding.
+
+### iOS 'plist' configuration file
+
+[CrashOpsConfig-info.plist](https://github.com/CrashOps/Flutter-Example/blob/v0.0.822/ios/Runner/CrashOpsConfig-info.plist)
+
+### Android 'xml' configuration file
+
+[crashops_config.xml](https://github.com/CrashOps/Flutter-Example/blob/v0.0.822/android/app/src/main/res/values/crashops_config.xml)
+
 
 ## Don't have [Flutter](https://flutter.dev/) yet?
 
