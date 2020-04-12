@@ -6,6 +6,7 @@ This Flutter plugin helps to bridge your app with the CrashOps native SDK.
 CrashOps library helps you monitor your app's crashes and Flutter errors.
 
 ## Installation
+### 🔌 & ▶️
 
 Easiest to install, it's a "plug n' play" plugin. All you need to do is adding `crashops_flutter` dependency and CrashOps will automatically start monitoring on each app launch.
 
