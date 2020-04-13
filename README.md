@@ -11,7 +11,7 @@ CrashOps library helps you monitor your app's crashes and Flutter errors.
 [Our plugin](https://pub.dev/packages/crashops_flutter) is pretty straight forward and easy to "plug n' play". All you need to do is adding `crashops_flutter` dependency and CrashOps will automatically start monitoring native crashes on each app launch.
 
 Required changes in your `pubspec.yaml` file:
-```
+```yaml
 dependencies:
   flutter:
     sdk: flutter
