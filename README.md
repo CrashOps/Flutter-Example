@@ -8,7 +8,7 @@ CrashOps library helps you monitor your app's crashes and Flutter errors.
 ## Installation
 ### 🔌 & ▶️
 
-Easiest to install, it's a "plug n' play" plugin. All you need to do is adding `crashops_flutter` dependency and CrashOps will automatically start monitoring on each app launch.
+[Our plugin](https://pub.dev/packages/crashops_flutter) is pretty straight forward and easy to "plug n' play". All you need to do is adding `crashops_flutter` dependency and CrashOps will automatically start monitoring native crashes on each app launch.
 
 Required changes in your `pubspec.yaml` file:
 ```
@@ -23,47 +23,18 @@ dependencies:
 ## Usage
 
 
-
-### Catch errors
+### CrashOps can catch also errors from Flutter and Dart, not only native crashes.
 
 To catch errors from your Flutter app, edit your `main()` method as follows:
 ```dart
 void main() {
-  // Catching errors in Flutter actually depends on the Flutter developer's code.
-  CrashOps crashOps = CrashOps();
-
-  var onErrorPreviousCallback = FlutterError.onError;
-
-  // Catches only Flutter errors
-  FlutterError.onError = (FlutterErrorDetails details) {
-    crashOps.onError(details);
-    FlutterError.dumpErrorToConsole(details, forceReport: false);
-    if (onErrorPreviousCallback != null && FlutterError.dumpErrorToConsole != onErrorPreviousCallback) {
-      onErrorPreviousCallback(details);
-    }
-  };
-
-  // Catches all Dart
-  runZoned(() {
-    runApp(MyApp());
-  }, onError: (error, stackTrace) {
-    // This catches also Dart errors, not only Flutter errors.
-    // For more details, read: https://flutter.dev/docs/cookbook/maintenance/error-reporting
-    crashOps.onError(error, stackTrace);
-
-    if (error is FlutterErrorDetails) {
-      FlutterErrorDetails details = error;
-
-      FlutterError.dumpErrorToConsole(details, forceReport: false);
-      if (onErrorPreviousCallback != null && FlutterError.dumpErrorToConsole != onErrorPreviousCallback) {
-        onErrorPreviousCallback(details);
-      }
-    }
+  CrashOps.instance.run(app: MyApp(), onError: (e, stacktrace) {
+    print("Caught error from Flutter / Dart:\nError: $e\nStack Trace: $stacktrace");
   });
 }
 ```
 
-### Custom configurations
+### Customize configurations as you like
 ```dart
 class _MyAppState extends State<MyApp> {
   // It's not mandatory to put those configurations inside a State.
@@ -88,6 +59,7 @@ class _MyAppState extends State<MyApp> {
 
 }
 ```
+
 ## Configuration Files
 These files are **not mandatory** to use as you can also configure CrashOps via code only (programmatically, as appears above), but you still can add these files to save yourself coding.
 
