@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
 ```
 
 ## Configuration Files
-These files are **not mandatory** to use as you can also configure CrashOps via code only (programmatically, as appears above), but you still can add these files to save yourself coding.
+These files are **not mandatory** to use as you can also configure CrashOps via code only (programmatically, as mentioned above), but you still can add these files to save configuration via coding.
 
 ### iOS 'plist' configuration file
 
