@@ -1,5 +1,5 @@
 name: crashops_flutter_example
-version: 0.0.822+2
+version: 0.1.0+3
 description: Demonstrates how to use the CrashOps plugin.
 
 environment:
@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   # add more dependencies here if needed...
-  crashops_flutter: 0.0.822
+  crashops_flutter: 0.1.11
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

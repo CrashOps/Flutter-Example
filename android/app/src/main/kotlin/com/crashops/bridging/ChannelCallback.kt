@@ -1,4 +1,4 @@
-package com.example.bridging
+package com.crashops.bridging
 
 import io.flutter.plugin.common.MethodChannel
 

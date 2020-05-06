@@ -4,5 +4,9 @@
 
 <resources>
     <bool name="co_is_crashops_enabled">true</bool>
-    <string name="co_crashops_client_id">CrashOps sample Flutter app</string>
+    <string name="co_crashops_app_key">your-Android-application-key-from-CrashOps</string>
+
+    <!-- recommended to allow it only in debug mode -->
+    <bool name="co_is_crashops_allowed_to_toast">true</bool>
+    <bool name="co_is_crashops_allowed_to_alert">true</bool>
 </resources>

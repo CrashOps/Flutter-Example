@@ -6,39 +6,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  // Catching errors in Flutter actually depends on the Flutter developer's code.
-  CrashOps crashOps = CrashOps();
+  CrashOps.instance.run(
+      app: MyApp(),
+      iosKey: "your-ios-application-key-from-crashops",
+      androidKey: "your-android-application-key-from-crashops",
+      onError: (flutterErrorDetails, globalError, stackTrace) {
+        if (flutterErrorDetails != null) {
+          // Sometimes 'flutterErrorDetails' may be null because CrashOps catches Dart errors as well, not only Flutter errors.
+          //
+          // In case you wish to use more error catchers, make calls like this one:
+          // Crashlytics.instance.recordFlutterError(flutterErrorDetails);
+        }
 
-  var onErrorPreviousCallback = FlutterError.onError;
-
-  // Catches only Flutter errors
-  FlutterError.onError = (FlutterErrorDetails details) {
-    crashOps.onError(details);
-    FlutterError.dumpErrorToConsole(details, forceReport: false);
-    if (onErrorPreviousCallback != null &&
-        FlutterError.dumpErrorToConsole != onErrorPreviousCallback) {
-      onErrorPreviousCallback(details);
-    }
-  };
-
-  // Catches all Dart
-  runZoned(() {
-    runApp(MyApp());
-  }, onError: (error, stackTrace) {
-    // This catches also Dart errors, not only Flutter errors.
-    // For more details, read: https://flutter.dev/docs/cookbook/maintenance/error-reporting
-    crashOps.onError(error, stackTrace);
-
-    if (error is FlutterErrorDetails) {
-      FlutterErrorDetails details = error;
-
-      FlutterError.dumpErrorToConsole(details, forceReport: false);
-      if (onErrorPreviousCallback != null &&
-          FlutterError.dumpErrorToConsole != onErrorPreviousCallback) {
-        onErrorPreviousCallback(details);
-      }
-    }
-  });
+        print(
+            "CrashOps caught an error from Flutter / Dart:\nError: $globalError\nStack Trace: $stackTrace");
+      });
 }
 
 class MyApp extends StatefulWidget {
@@ -58,15 +40,11 @@ class _MyAppState extends State<MyApp> {
     // If you're willing to create logs in debug
     crashOps.isEnabledInDebugMode = true;
     // If you wish to upload logs CrashOps servers
-    crashOps.setClientId("your-client-id-from-crashops");
+    crashOps.setApplicationKey(
+        iosKey: "your-ios-application-key-from-crashops",
+        androidKey: "your-android-application-key-from-crashops");
     // If you wish to add more details in each log
     crashOps.setMetadata({"yo": "that's my awesome app!"});
-
-    try {
-      // Platform messages may fail, so we use a try/catch PlatformException.
-    } on PlatformException {
-      print("Error!");
-    }
   }
 
   @override

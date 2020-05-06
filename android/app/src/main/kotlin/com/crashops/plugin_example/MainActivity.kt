@@ -1,7 +1,7 @@
-package com.crashops.crashops_flutter_example
+package com.crashops.plugin_example
 
 import androidx.annotation.NonNull
-import com.example.bridging.FlutterNativeBridge
+import com.crashops.bridging.FlutterNativeBridge
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugins.GeneratedPluginRegistrant

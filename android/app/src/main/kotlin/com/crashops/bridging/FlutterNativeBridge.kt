@@ -1,10 +1,9 @@
-package com.example.bridging
+package com.crashops.bridging
 
 import android.os.Handler
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import io.flutter.view.FlutterView
 
 class FlutterNativeBridge(): MethodChannel.MethodCallHandler {
     companion object {
