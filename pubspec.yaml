@@ -1,5 +1,5 @@
 name: crashops_flutter_example
-version: 0.1.0+3
+version: 0.1.11+4
 description: Demonstrates how to use the CrashOps plugin.
 
 environment:
