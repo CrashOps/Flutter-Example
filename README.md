@@ -73,15 +73,17 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
-## Configuration Files (use them if not configured programmatically)
+## Configuration
+
+### Config Files (use them for application key if not configured programmatically as appears above)
 
 These files are **not mandatory** to use as you can also configure CrashOps via code only (programmatically, as mentioned above), but you still can add these files to save configuration via coding.
 
-### iOS 'plist' configuration file
+#### iOS 'plist' configuration file
 
 [CrashOpsConfig-info.plist](https://github.com/CrashOps/Flutter-Example/blob/v0.1.11/ios/Runner/CrashOpsConfig-info.plist)
 
-### Android 'xml' configuration file
+#### Android 'xml' configuration file
 
 [crashops_config.xml](https://github.com/CrashOps/Flutter-Example/blob/v0.1.11/android/app/src/main/res/values/crashops_config.xml)
 
