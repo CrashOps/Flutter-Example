@@ -17,7 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
 ...
-  crashops_flutter: 0.1.11
+  crashops_flutter: 0.2.1
 ...
 ```
 
