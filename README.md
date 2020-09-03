@@ -17,7 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
 ...
-  crashops_flutter: 0.2.1
+  crashops_flutter: 0.2.33
 ...
 ```
 
@@ -30,8 +30,8 @@ To catch errors from your Flutter app, edit your `main()` method as follows:
 void main() {
   CrashOps.instance.run(
       app: MyApp(),
-      iosKey: "your-ios-application-key-from-crashops",
-      androidKey: "your-android-application-key-from-crashops",
+      iosKey: "your-ios-application-key-from-crashops-console",
+      androidKey: "your-android-application-key-from-crashops-console",
       onError: (flutterErrorDetails, globalError, stackTrace) {
         if (flutterErrorDetails != null) {
           // Sometimes 'flutterErrorDetails' may be null because CrashOps catches Dart errors as well, not only Flutter errors.
@@ -62,8 +62,8 @@ class _MyAppState extends State<MyApp> {
     crashOps.isEnabledInDebugMode = true;
     // If you wish to upload logs to CrashOps' servers
     crashOps.setApplicationKey(
-        iosKey: "your-ios-application-key-from-crashops",
-        androidKey: "your-android-application-key-from-crashops");
+        iosKey: "your-ios-application-key-from-crashops-console",
+        androidKey: "your-android-application-key-from-crashops-console");
     // If you wish to include more details in each log
     crashOps.setMetadata({"yo": "that's my awesome app!"});
   }
