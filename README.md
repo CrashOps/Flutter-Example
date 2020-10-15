@@ -17,7 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
 ...
-  crashops_flutter: 0.2.33
+  crashops_flutter: 0.3.02
 ...
 ```
 
@@ -105,4 +105,4 @@ Thanks to this awesome framework called [Flutter](https://pub.dev/flutter), we c
 
 ### TODO
 
-We're working hard on creating a dashboard on the web, [stay tuned](https://www.crashops.com/).
+We're working on creating a dashboard on the web, [stay tuned](https://www.crashops.com/).
