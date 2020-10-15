@@ -33,6 +33,17 @@ class _MyAppState extends State<MyApp> {
   bool _isCrashOpsEnabled;
   String get _btnEnableTitle => _isCrashOpsEnabled ? "enabled" : "disabled";
 
+  String get operatingSystem {
+    String os = "unknown";
+    try {
+      os = Platform.operatingSystem;
+    } catch (e) {
+      print(e);
+    }
+
+    return os;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -68,7 +79,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Text('Running on: ${Platform.operatingSystem}\n'),
+              Text('Running on: $operatingSystem'),
               RaisedButton(
                 onPressed: () async {
                   _isCrashOpsEnabled = await crashOps.isEnabled;
